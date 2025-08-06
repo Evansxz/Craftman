@@ -14,4 +14,24 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// Animasi section hero
+// Background otomatis untuk hero section
+const hero = document.querySelector('.hero');
+
+// Daftar gambar background
+const backgrounds = [
+  'assets/Hero1.jpg',
+  'assets/Hero2.jpg',
+  'assets/Hero3.jpg'
+];
+
+let currentBackground = 0;
+const delay = 5000; // jeda 5 detik
+
+function changeBackground() {
+  currentBackground = (currentBackground + 1) % backgrounds.length;
+  hero.style.backgroundImage = `url('${backgrounds[currentBackground]}')`;
+}
+
+// Mulai pergantian otomatis setelah load
+setInterval(changeBackground, delay);
+
